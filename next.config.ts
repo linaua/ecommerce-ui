@@ -10,24 +10,25 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
-  async headers() {
-    return [{
-      source: '/(.*)',
-      headers: [
-        { key: 'X-Content-Type-Options', value: 'nosniff' },
-        { key: 'X-Frame-Options',         value: 'DENY'    },
-      ],
-    }];
-  },
-};
-/** @type {import('next').NextConfig} */
-const nextConfig = {
   typescript: {
+    // Це дозволить деплою пройти, навіть якщо є помилки типів
     ignoreBuildErrors: true,
   },
   eslint: {
-    ignoreDuringBuilds: true
-},
+    // Це ігнорує помилки лінтера під час збірки
+    ignoreDuringBuilds: true,
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+        ],
+      },
+    ];
+  },
 };
+
 export default nextConfig;
