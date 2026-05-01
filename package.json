@@ -29,3 +29,9 @@
     "eslint-config-next": "14.2.4"
   }
 }
+{
+  "scripts": {
+    ...
+  },
+  "npmrc": "legacy-peer-deps=true"
+}
